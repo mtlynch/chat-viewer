@@ -35,7 +35,7 @@ export default {
           const messages = [];
           for (const [i, m] of c.messages.entries()) {
             messages.push({
-              key: i,
+              key: `${c.remoteUsername}-${i}-${m.timestamp}`,
               timestamp: new Date(m.timestamp),
               sender: m.sender,
               contents: m.contents,
