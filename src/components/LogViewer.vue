@@ -7,24 +7,18 @@
         </option>
       </select>
 
-      <div v-if="selectedConversation">
-        <div v-for="m of selectedConversation.messages" v-bind:key="m">
-          <p>
-            <span class="timestamp">{{ m.timestamp }}</span>
-            <span class="sender">
-              {{ m.sender }}:
-            </span>
-            <span class="contents" v-html="m.contents"></span>
-          </p>
-        </div>
-      </div>
+      <Conversation v-bind:conversation="selectedConversation" v-if="selectedConversation"/>
     </div>
   </div>
 </template>
 
 <script>
+import Conversation from "./Conversation.vue";
 export default {
   name: 'LogViewer',
+  components: {
+    Conversation
+  },
   data() {
     return {
       conversations: [],
@@ -67,5 +61,9 @@ p {
 
 .timestamp {
   width: 50px;
+}
+
+.sender {
+  font-weight: bold;
 }
 </style>
