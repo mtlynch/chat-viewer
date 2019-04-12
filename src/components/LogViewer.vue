@@ -48,7 +48,6 @@ export default {
             });
           }
           messages.sort((a, b) => a.timestamp - b.timestamp);
-          const firstKey = messages[0].key;
           this.conversations.push({
             key: `${c.remoteUsername}-${conversationIndex}`,
             messages: messages,
